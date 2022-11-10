@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="clock ">
+        <img src="clock2.png" alt="clock" class="imagen">
+        <div class="hour hand" id="hour"></div>
+        <div class="minute hand" id="minute"></div>
+        <div class="seconds hand" id="seconds"></div>
+    </div>
+    <script>
+        var hour = document.getElementById("hour");
+        var minute = document.getElementById("minute");
+        var seconds = document.getElementById("seconds");
+
+        var set_clock =setInterval(function clock
+        (){
+            var date_now = new Date();
+            var hr = date_now.getHours();
+            var min = date_now.getMinutes();
+            var sec = date_now.getSeconds();
+            
+            var calc_hr = (hr*30)+(min/2);
+            var calc_min = (min*6)+(sec/10);
+            var calc_sec = sec*6;
+
+            hour.style.transform = 'rotate('+ calc_hr +"deg)";
+            minute.style.transform = 'rotate('+ calc_min +"deg)";
+            seconds.style.transform = 'rotate('+ calc_sec +"deg)";
+
+            const tiempoTranscurrido = Date.now();
+            const hoy = new Date(tempoTranscurrido);
+        }, 1000);
+    </script>
+</body>
+</html>
